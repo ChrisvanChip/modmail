@@ -23,7 +23,7 @@ logger = getLogger(__name__)
 
 
 class Modmail(commands.Cog):
-    """Commands directly related to Modmail functionality."""
+    """Commands directly related to your support bot functionality."""
 
     def __init__(self, bot):
         self.bot = bot
@@ -33,15 +33,15 @@ class Modmail(commands.Cog):
     @checks.has_permissions(PermissionLevel.OWNER)
     async def setup(self, ctx):
         """
-        Sets up a server for Modmail.
+        Sets up a server.
 
         You only need to run this command
-        once after configuring Modmail.
+        once after configuring your bot.
         """
 
         if ctx.guild != self.bot.modmail_guild:
             return await ctx.send(
-                f"You can only setup in the Modmail guild: {self.bot.modmail_guild}."
+                f"You can only setup in the whitelisted guild: {self.bot.modmail_guild}."
             )
 
         if self.bot.main_category is not None:
@@ -96,10 +96,8 @@ class Modmail(commands.Cog):
         )
 
         embed.add_field(
-            name="Thanks for using our bot!",
-            value="If you like what you see, consider giving the "
-            "[repo a star](https://github.com/kyb3r/modmail) :star: and if you are "
-            "feeling extra generous, buy us coffee on [Patreon](https://patreon.com/kyber) :heart:!",
+            name="Thanks for your purchase!",
+            value="Enjoy your new bot!"
         )
 
         embed.set_footer(text=f'Type "{self.bot.prefix}help" for a complete list of commands.')
