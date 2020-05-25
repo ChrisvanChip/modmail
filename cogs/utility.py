@@ -524,9 +524,9 @@ class Utility(commands.Cog):
         return await ctx.send(embed=embed)
 
     @commands.command()
-    @checks.has_permissions(PermissionLevel.ADMINISTRATOR)
+    @checks.has_permissions(PermissionLevel.SUPPORTER)
     @utils.trigger_typing
-    async def mention(self, ctx, *, mention: str = None):
+    async def sendmention(self, ctx, *, mention: str = None):
         """Mention a specific user or role."""
         
         return await ctx.send(mention)
