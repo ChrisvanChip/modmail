@@ -525,6 +525,14 @@ class Utility(commands.Cog):
 
     @commands.command()
     @checks.has_permissions(PermissionLevel.ADMINISTRATOR)
+    @utils.trigger_typing
+    async def mention(self, ctx, *, mention: str = None):
+        """Mention a specific user or role."""
+        
+        return await ctx.send(mention)
+    
+    @commands.command()
+    @checks.has_permissions(PermissionLevel.ADMINISTRATOR)
     async def mention(self, ctx, *, mention: str = None):
         """
         Change what the bot mentions at the start of each thread.
