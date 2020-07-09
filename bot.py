@@ -857,6 +857,9 @@ class ModmailBot(commands.Bot):
         await self.process_commands(message)
 
     async def process_commands(self, message):
+        if message.author.bot:	
+            return
+
         if isinstance(message.channel, discord.DMChannel):
             return await self.process_dm_modmail(message)
 
@@ -867,7 +870,7 @@ class ModmailBot(commands.Bot):
             if cmd in self.snippets:
                 snippet = self.snippets[cmd]
                 message.content = f"{self.prefix}freply {snippet}"
-
+    
         ctxs = await self.get_contexts(message)
         for ctx in ctxs:
             if ctx.command:
