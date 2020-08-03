@@ -528,6 +528,7 @@ class Utility(commands.Cog):
 
     @commands.command()
     @checks.has_permissions(PermissionLevel.SUPPORTER)
+    @checks.thread_only()
     @utils.trigger_typing
     async def sendmention(self, ctx, *, mention: str = None):
         """Mention a specific user or role."""
